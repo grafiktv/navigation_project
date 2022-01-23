@@ -12,10 +12,10 @@ class _FirstRouteState extends State<FirstRoute> {
   final _messengerKey = GlobalKey<ScaffoldMessengerState>();
   var _currentPage = 0;
 
-  var _pages = [
-    Text('1. В этом разделе находятся игровые приставки  '),
-    Text('2. В этом разделе находится аудиотехника'),
-    Text('3. В этом разделе находится фототехника'),];
+  final _pages = [
+    const Text('1. В этом разделе находятся игровые приставки  '),
+    const Text('2. В этом разделе находится аудиотехника'),
+    const Text('3. В этом разделе находится фототехника'),];
 
   @override
   Widget build(BuildContext context) {
@@ -42,7 +42,7 @@ class _FirstRouteState extends State<FirstRoute> {
               {Navigator.push(context,
                 MaterialPageRoute(builder: (context) => const SecondRoute()),
               );},
-                child: Text('Профиль'),
+                child: const Text('Профиль'),
                 style: buttonStyle,)
             ]
         ),
@@ -97,13 +97,13 @@ class _FirstRouteState extends State<FirstRoute> {
         ),
         bottomNavigationBar: BottomNavigationBar(
           items: [
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               label: 'Приставки',
               icon: Icon(Icons.videogame_asset),),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               label: 'Гарнитуры',
               icon: Icon(Icons.headset_outlined),),
-            BottomNavigationBarItem(
+            const BottomNavigationBarItem(
               label: 'Фотокамеры',
               icon: Icon(Icons.camera_outlined),),
           ],
