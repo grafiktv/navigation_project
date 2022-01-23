@@ -10,6 +10,12 @@ class FirstRoute extends StatefulWidget {
 class _FirstRouteState extends State<FirstRoute> {
   
   final _messengerKey = GlobalKey<ScaffoldMessengerState>();
+  var _currentPage = 0;
+
+  var _pages = [
+    Text('1. В этом разделе находятся игровые приставки  '),
+    Text('2. В этом разделе находится аудиотехника'),
+    Text('3. В этом разделе находится фототехника'),];
 
   @override
   Widget build(BuildContext context) {
@@ -87,13 +93,29 @@ class _FirstRouteState extends State<FirstRoute> {
           //body: Center(child: Text('Содержимое экрана')),
         ),
         body: Center(
-          child: ElevatedButton(
-            child: const Text('Настройки'),
-            onPressed: ()
-            {Navigator.push(context,
-                MaterialPageRoute(builder: (context) => const SecondRoute()),);
-            },
-          ),
+          child: _pages.elementAt(_currentPage),
+        ),
+        bottomNavigationBar: BottomNavigationBar(
+          items: [
+            BottomNavigationBarItem(
+              label: 'Приставки',
+              icon: Icon(Icons.videogame_asset),),
+            BottomNavigationBarItem(
+              label: 'Гарнитуры',
+              icon: Icon(Icons.headset_outlined),),
+            BottomNavigationBarItem(
+              label: 'Фотокамеры',
+              icon: Icon(Icons.camera_outlined),),
+          ],
+          currentIndex: _currentPage,
+          fixedColor: Colors.deepPurple,
+          onTap: (int intIndex)
+          {
+            setState (() {
+              _currentPage = intIndex;
+            });
+
+          },
         ),
       ),
     );
